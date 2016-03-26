@@ -6,15 +6,31 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class SistemaGestionLaberinto {
 	
-	val listaLaberintos = new ArrayList();
+	val listaLaberintos = new ArrayList<String>();
+	var Laberinto laberintoConfigurado = new Laberinto("TEMPORAL");
 
 	def agregarLaberinto(String nombreLab) {
-		var nuevoLaberinto = new Laberinto(nombreLab);
+		listaLaberintos.add(nombreLab);
+	}
+	
+	def void elegirLaberinto(String nombreLab) {
+//		var nombre = listaLaberintos.findFirst[laberinto | laberinto == nombreLab];
+		laberintoConfigurado.nombreLaberinto = nombreLab;
+	}
+	
+	def void agregarHabitacionALaberinto(String nombreHabitacion) {
+		var habitacion = new Habitacion(nombreHabitacion)
+		laberintoConfigurado.agregarHabitacion(habitacion)
 		
-		listaLaberintos.add(nuevoLaberinto);
 	}
 	
-	def agregarHabitacionALaberinto(String nombreLaberinto, String nombreHabitacion) {
+	def void agregarItemAHabitacionDelLaberinto(String nombreHabitacion,String nombreItem){
+		
+		var Habitacion habitacion = laberintoConfigurado.listaHabitaciones.filter[tieneElMismoNombre(nombreHabitacion)] as Habitacion
+		habitacion.agregarItem(nombreItem)
 	}
 	
+	
+	def static void main(String[] args) {
+  	}
 }
