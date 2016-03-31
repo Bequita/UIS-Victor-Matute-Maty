@@ -19,4 +19,10 @@ class Laberinto {
 		
 		listaHabitaciones.add(habitacionNueva)
 	}
+	
+	def buscarHabitacion(int numeroHabitacion) {
+		
+		return listaHabitaciones.get(numeroHabitacion)
+	}
+	
 }

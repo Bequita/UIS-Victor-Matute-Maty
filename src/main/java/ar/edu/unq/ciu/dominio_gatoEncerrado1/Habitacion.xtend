@@ -7,13 +7,15 @@ import java.util.ArrayList
 class Habitacion {
 	
 	String nombre
+	int id 
 	var ArrayList<Item> listaItems 
-	val TipoHabitacion tipoHabitacion 
+	var TipoHabitacion tipoHabitacion 
 	
 	new(String nom) {
-		nombre = nom;
+		nombre = nom
+		id = 0
 		listaItems= new ArrayList()
-		tipoHabitacion = TipoHabitacion.INICIAL
+		tipoHabitacion = TipoHabitacion.COMUN
 		
 	}
 	
@@ -24,6 +26,21 @@ class Habitacion {
 	
 	def tieneElMismoNombre(String nombreHabitacion){
 		return nombre == nombreHabitacion
+	}
+	
+	def descartarItem(Item item) {
+		
+		listaItems.remove(item)
+	}
+	
+	def marcarComoInicial(){
+		
+		tipoHabitacion = TipoHabitacion.INICIAL
+	}
+	
+	def marcarComoFinal(){
+		
+		tipoHabitacion = TipoHabitacion.FINAL
 	}
 	
 }

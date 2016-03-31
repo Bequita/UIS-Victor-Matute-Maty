@@ -4,18 +4,27 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
-class SistemaGestionLaberinto {
+class SistemaGestionLaberinto{
 	
-	val listaLaberintos = new ArrayList<String>();
-	var Laberinto laberintoConfigurado = new Laberinto("TEMPORAL");
+	val ArrayList<String> listaLaberintos
+	var Laberinto laberintoConfigurado 
+	var int habitacionActual 
+	
+	new(){
+		
+		habitacionActual = 0
+		laberintoConfigurado = new Laberinto("TEMPORAL")
+		listaLaberintos = new ArrayList()
+		
+	}
 
-	def agregarLaberinto(String nombreLab) {
+	def agregarLaberinto(String nombreLab){
 		listaLaberintos.add(nombreLab);
 	}
 	
-	def void elegirLaberinto(String nombreLab) {
+	def void elegirLaberinto(String nombreLab){
 //		var nombre = listaLaberintos.findFirst[laberinto | laberinto == nombreLab];
-		laberintoConfigurado.nombreLaberinto = nombreLab;
+		laberintoConfigurado.nombreLaberinto = nombreLab
 	}
 	
 	def void agregarHabitacionALaberinto(String nombreHabitacion) {
@@ -30,6 +39,20 @@ class SistemaGestionLaberinto {
 		habitacion.agregarItem(nombreItem)
 	}
 	
+	def void marcarHabitacionInicial(int numeroHabitacion){
+		
+		var  habitacion = laberintoConfigurado.buscarHabitacion(numeroHabitacion)
+		habitacion.marcarComoInicial()
+		habitacionActual = numeroHabitacion
+	}
+	
+	def marcarHabitacionFinal(int numeroHabitacion){
+		
+		var  habitacion = laberintoConfigurado.buscarHabitacion(numeroHabitacion)
+		habitacion.marcarComoFinal()
+		
+		
+	}
 	
 	def static void main(String[] args) {
   	}
