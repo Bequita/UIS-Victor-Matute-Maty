@@ -9,13 +9,21 @@ class Habitacion {
 	String nombre
 	int id 
 	var ArrayList<Item> listaItems 
-	var TipoHabitacion tipoHabitacion 
+	var TipoHabitacion tipoHabitacion  
+	var ArrayList<AccionMoverse> listaDeMovimientos
 	
 	new(String nom) {
 		nombre = nom
 		id = 0
 		listaItems= new ArrayList()
 		tipoHabitacion = TipoHabitacion.COMUN
+	}
+	
+	def movimientosPosibles(int numHab){
+		listaDeMovimientos.add(new AccionMoverse(numHab))
+	}
+	
+	def accionesPosibles(){
 		
 	}
 	

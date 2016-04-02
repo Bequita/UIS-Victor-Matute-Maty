@@ -3,3 +3,4 @@ src/main/xtend-gen
 .settings
 .classpath
 .project
+/bin/
