@@ -4,17 +4,13 @@ import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
-class SistemaGestionLaberinto{
+class GatoEncerradoModel{
 	
 	//val ArrayList<String> listaNombreLaberintos
-	var ArrayList<Laberinto> listaLaberintos 
-	var Laberinto laberintoConfigurado 
-	var int habitacionActual 
-	
+	var ArrayList<Laberinto> listaLaberintos
+	var Habitacion habitacionActual
+
 	new(){
-		
-		habitacionActual = 0
-		laberintoConfigurado = new Laberinto("TEMPORAL")
 		listaLaberintos = new ArrayList()
 	}
 	
@@ -61,13 +57,12 @@ class SistemaGestionLaberinto{
 		listaLaberintos.add(lab);
 	}
 	
-	def void elegirLaberinto(String nombreLab){
-//		var nombre = listaLaberintos.findFirst[laberinto | laberinto == nombreLab];
-		laberintoConfigurado.nombreLaberinto = nombreLab
+	def Laberinto elegirLaberinto(String nombreLab){
+		
+      return buscarLaberinto(nombreLab)
+		
 	}
-	
-	
-	
+	/*
 	def void agregarItemAHabitacionDelLaberinto(String nombreHabitacion,String nombreItem){
 		
 		var Habitacion habitacion = laberintoConfigurado.listaHabitaciones.filter[tieneElMismoNombre(nombreHabitacion)] as Habitacion
@@ -87,8 +82,5 @@ class SistemaGestionLaberinto{
 		habitacion.marcarComoFinal()
 		
 		
-	}
-	
-	def static void main(String[] args) {
-  	}
+	}*/
 }

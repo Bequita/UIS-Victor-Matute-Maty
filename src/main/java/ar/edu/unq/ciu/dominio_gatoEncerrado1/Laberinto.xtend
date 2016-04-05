@@ -24,5 +24,5 @@ class Laberinto {
 		
 		return listaHabitaciones.get(numeroHabitacion)
 	}
-	
+
 }
