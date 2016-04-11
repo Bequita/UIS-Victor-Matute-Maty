@@ -1,18 +1,22 @@
 package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
-import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
+import java.util.List
 
+@Observable
 @Accessors
 class GatoEncerradoModel{
 	
 	//val ArrayList<String> listaNombreLaberintos
-	var ArrayList<Laberinto> listaLaberintos
-	var Habitacion habitacionActual
+	var List<Laberinto> listaLaberintos
+	//var Habitacion habitacionActual
 
+	
 	new(){
-		listaLaberintos = new ArrayList()
+		listaLaberintos = newArrayList()
 	}
+	
 	
 	/**
 	 * Crea un laberinto sin habitaciones y lo guarda en ListaLaberintos
