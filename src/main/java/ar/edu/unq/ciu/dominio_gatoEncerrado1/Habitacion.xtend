@@ -2,34 +2,32 @@ package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.ArrayList
-import java.util.Observable
-import java.util.Observer
+import org.uqbar.commons.utils.Observable
+import java.util.List
 
+@Observable
 @Accessors
-class Habitacion extends Observable{
+class Habitacion {
 	
-	String nombre
+	String nombreHabitacion
 	int id 
-	var ArrayList<Item> listaItems 
-	var TipoHabitacion tipoHabitacion  
-	var ArrayList<Accion> listaDeMovimientos
+	var List<Item> listaItems
+	var TipoHabitacion tipoHabitacion
+	var List<Accion> listaDeMovimientos
 	
 	new(String nom) {
-		nombre = nom
+		nombreHabitacion = nom
 		id = 0
-		listaItems= new ArrayList()
-		listaDeMovimientos = new ArrayList()
+		listaItems= newArrayList
+		listaDeMovimientos = newArrayList
 		tipoHabitacion = TipoHabitacion.COMUN
+	}
+	
+	new() {
 	}
 	
 	def movimientosPosibles(int numHab){
 //		listaDeMovimientos.add(numHab)
-	}
-	
-	def moverseA(int numeroHabitacion){
-		
-		setChanged()
-		notifyObservers(numeroHabitacion)
 	}
 	
 	def void agregarItem(String nuevoItem){
@@ -37,12 +35,7 @@ class Habitacion extends Observable{
 		listaItems.add(item)
 	}
 	
-	def tieneElMismoNombre(String nombreHabitacion){
-		return nombre == nombreHabitacion
-	}
-	
 	def descartarItem(Item item) {
-		
 		listaItems.remove(item)
 	}
 	

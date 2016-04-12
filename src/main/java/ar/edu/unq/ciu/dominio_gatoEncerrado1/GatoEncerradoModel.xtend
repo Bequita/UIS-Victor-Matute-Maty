@@ -10,13 +10,17 @@ class GatoEncerradoModel{
 	
 	//val ArrayList<String> listaNombreLaberintos
 	var List<Laberinto> listaLaberintos
-	//var Habitacion habitacionActual
-
 	
 	new(){
 		listaLaberintos = newArrayList()
+		listaLaberintos.add(new Laberinto("Lab1"))
+		listaLaberintos.add(new Laberinto("Lab2"))
+		listaLaberintos.add(new Laberinto("Lab3"))
+		
+		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion1"))
+		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion2"))
+		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion3"))
 	}
-	
 	
 	/**
 	 * Crea un laberinto sin habitaciones y lo guarda en ListaLaberintos
@@ -26,6 +30,21 @@ class GatoEncerradoModel{
 		this.agregarLaberinto(laberinto)
 	}
 	
+		/**
+	 * Elimina una laberinto
+	 */
+	 def  eliminarLaberinto(String nomLab){	
+		listaLaberintos.remove(this.buscarLaberinto(nomLab))
+	}
+	
+	def Laberinto buscarLaberinto(String nomLab){
+		return listaLaberintos.findFirst[laberinto | laberinto.nombreLaberinto == nomLab]
+	}
+
+	def agregarLaberinto(Laberinto lab){
+		listaLaberintos.add(lab);
+	}
+	
 	/**
 	 * Agrega una habitacion al laberinto pasado por parametro
 	 */
@@ -33,7 +52,6 @@ class GatoEncerradoModel{
 		var Laberinto lab = this.buscarLaberinto(nomLab)
 		hab.id = lab.listaHabitaciones.size
 		lab.agregarHabitacion(hab)
-		//laberintoConfigurado.agregarHabitacion(habitacion)
 	}
 	
 	/**
@@ -42,49 +60,5 @@ class GatoEncerradoModel{
 	def eliminarHabitacionDelLaberinto(String nomLab,int numHab) {
 		var Laberinto lab = this.buscarLaberinto(nomLab)
 		lab.listaHabitaciones.remove(numHab)
-		//laberintoConfigurado.agregarHabitacion(habitacion)
 	}
-	
-	/**
-	 * Elimina una laberinto
-	 */
-	def eliminarLaberinto(String nomLab){	
-		listaLaberintos.remove(this.buscarLaberinto(nomLab))
-	}
-	
-	def Laberinto buscarLaberinto(String nomLab){
-		return listaLaberintos.findFirst[laberinto | laberinto.nombreLaberinto == nomLab]
-		
-	}
-
-	def agregarLaberinto(Laberinto lab){
-		listaLaberintos.add(lab);
-	}
-	
-	def Laberinto elegirLaberinto(String nombreLab){
-		
-      return buscarLaberinto(nombreLab)
-		
-	}
-	/*
-	def void agregarItemAHabitacionDelLaberinto(String nombreHabitacion,String nombreItem){
-		
-		var Habitacion habitacion = laberintoConfigurado.listaHabitaciones.filter[tieneElMismoNombre(nombreHabitacion)] as Habitacion
-		habitacion.agregarItem(nombreItem)
-	}
-	
-	def void marcarHabitacionInicial(int numeroHabitacion){
-		
-		var  habitacion = laberintoConfigurado.buscarHabitacion(numeroHabitacion)
-		habitacion.marcarComoInicial()
-		habitacionActual = numeroHabitacion
-	}
-	
-	def marcarHabitacionFinal(int numeroHabitacion){
-		
-		var  habitacion = laberintoConfigurado.buscarHabitacion(numeroHabitacion)
-		habitacion.marcarComoFinal()
-		
-		
-	}*/
 }

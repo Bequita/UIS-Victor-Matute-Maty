@@ -11,16 +11,16 @@ import java.util.List
 class Laberinto {
 	
 	var String nombreLaberinto;
-	var List<Habitacion> listaHabitaciones 
-	
-	new(){
-		
-		listaHabitaciones = newArrayList()
-	}
+	var List<Habitacion> listaHabitaciones	
 	
 	new(String nombreLab){
 		nombreLaberinto = nombreLab
-		listaHabitaciones = new ArrayList()
+		listaHabitaciones = new ArrayList
+	}
+	
+	new() {
+		
+		listaHabitaciones = new ArrayList
 	}
 	
 	def void agregarHabitacion(Habitacion habitacionNueva){
@@ -31,6 +31,12 @@ class Laberinto {
 	def buscarHabitacion(int numeroHabitacion) {
 		
 		return listaHabitaciones.get(numeroHabitacion)
+	}
+	
+	def eliminarHabitacion(Habitacion habitacion) {
+	   
+	    listaHabitaciones.remove(habitacion)
+	  
 	}
 
 }
