@@ -1,12 +1,12 @@
 package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class AccionDeAgarrarUnElemento extends Accion {
 	
-	
-	new(String nombre,String nombreItem,Habitacion habitacion){
-		
-		super(nombre)
-		habitacion.agregarItem(nombreItem)
+	new(Habitacion habitacion){
+		super(habitacion)
 	}
 	
 	

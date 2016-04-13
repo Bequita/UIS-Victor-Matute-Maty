@@ -1,12 +1,19 @@
 package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
-abstract class Accion {
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
+
+@Observable
+@Accessors
+class Accion {
 	
-	var String descripcion
+	Habitacion habitacion
 	
-	new(String nombre){
-		
-		descripcion = nombre
-    }
+	new(Habitacion hab) {
+		habitacion = hab
+	}
+	
+	new() {
+	}
 
 }

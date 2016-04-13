@@ -19,24 +19,19 @@ class Laberinto {
 	}
 	
 	new() {
-		
 		listaHabitaciones = new ArrayList
 	}
 	
 	def void agregarHabitacion(Habitacion habitacionNueva){
-		
 		listaHabitaciones.add(habitacionNueva)
 	}
 	
 	def buscarHabitacion(int numeroHabitacion) {
-		
 		return listaHabitaciones.get(numeroHabitacion)
 	}
 	
 	def eliminarHabitacion(Habitacion habitacion) {
-	   
 	    listaHabitaciones.remove(habitacion)
-	  
 	}
 
 }

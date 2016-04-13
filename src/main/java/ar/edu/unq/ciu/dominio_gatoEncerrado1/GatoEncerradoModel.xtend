@@ -50,15 +50,14 @@ class GatoEncerradoModel{
 	 */
 	def agregarHabitacionALaberinto(String nomLab,Habitacion hab) {
 		var Laberinto lab = this.buscarLaberinto(nomLab)
-		hab.id = lab.listaHabitaciones.size
 		lab.agregarHabitacion(hab)
 	}
 	
 	/**
 	 * Elimina una habitacion al laberinto pasado por parametro
 	 */
-	def eliminarHabitacionDelLaberinto(String nomLab,int numHab) {
-		var Laberinto lab = this.buscarLaberinto(nomLab)
-		lab.listaHabitaciones.remove(numHab)
+	def eliminarHabitacionDelLaberinto(Laberinto laberinto, Habitacion habitacion) {
+		laberinto.eliminarHabitacion(habitacion)
 	}
+	
 }

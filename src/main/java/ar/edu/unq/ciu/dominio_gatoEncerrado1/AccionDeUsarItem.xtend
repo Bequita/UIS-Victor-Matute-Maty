@@ -1,10 +1,12 @@
 package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
+import org.eclipse.xtend.lib.annotations.Accessors
+
+@Accessors
 class AccionDeUsarItem extends Accion{
 	
-	new(String nombre){
-		
-		super(nombre)
+	new(Habitacion habitacion){
+		super(habitacion)
 	}
 	
 	
