@@ -20,6 +20,8 @@ class GatoEncerradoModel{
 		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion1"))
 		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion2"))
 		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion3"))
+		
+		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeMoverse(new Habitacion("Habitacion4")))
 	}
 	
 	/**

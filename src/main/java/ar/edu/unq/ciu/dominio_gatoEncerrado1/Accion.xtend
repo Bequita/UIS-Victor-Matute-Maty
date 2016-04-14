@@ -8,6 +8,7 @@ import org.uqbar.commons.utils.Observable
 class Accion {
 	
 	Habitacion habitacion
+	String accion
 	
 	new(Habitacion hab) {
 		habitacion = hab

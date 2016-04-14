@@ -7,8 +7,9 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 class AccionDeMoverse extends Accion{
 	
-	new(Habitacion hab) {
-		habitacion = hab
+	new(Habitacion habitacion) {
+		super(habitacion)
+		accion = "Ir a habitacion - " + habitacion.nombreHabitacion
 	}
 	
 	new() {
