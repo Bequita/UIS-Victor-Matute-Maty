@@ -27,6 +27,10 @@ class CrearLaberintoAppModel {
 		sistema.agregarHabitacionALaberinto(nombreLab, nuevaHabitacion)
 	}
 	
+	def eliminarAccion() {
+		sistema.eliminarAccionDeLaHabitacion(nuevaHabitacion, nuevaAccion)
+	}
+	
 	def eliminarHabitacion() {
 		sistema.eliminarHabitacionDelLaberinto(nuevoLaberinto, nuevaHabitacion)
 	}

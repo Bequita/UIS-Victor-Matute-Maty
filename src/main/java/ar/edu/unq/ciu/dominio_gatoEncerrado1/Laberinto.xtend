@@ -11,15 +11,13 @@ import java.util.List
 class Laberinto {
 	
 	var String nombreLaberinto;
-	var List<Habitacion> listaHabitaciones	
+	var List<Habitacion> listaHabitaciones = new ArrayList
 	
 	new(String nombreLab){
 		nombreLaberinto = nombreLab
-		listaHabitaciones = new ArrayList
 	}
 	
 	new() {
-		listaHabitaciones = new ArrayList
 	}
 	
 	def void agregarHabitacion(Habitacion habitacionNueva){

@@ -62,4 +62,10 @@ class GatoEncerradoModel{
 		laberinto.eliminarHabitacion(habitacion)
 	}
 	
+	/**
+	 * Elimina una accion de la habitacion pasada por parametro
+	 */
+	def eliminarAccionDeLaHabitacion(Habitacion habitacion, Accion accion) {
+		habitacion.eliminarAccion(accion)
+	}
 }
