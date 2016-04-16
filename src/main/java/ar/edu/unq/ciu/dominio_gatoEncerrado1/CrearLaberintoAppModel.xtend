@@ -38,4 +38,5 @@ class CrearLaberintoAppModel {
 	def eliminarLaberinto() {
 		sistema.eliminarLaberinto(nuevoLaberinto.nombreLaberinto)
 	}
+	
 }

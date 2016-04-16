@@ -31,4 +31,8 @@ class Habitacion {
 		listaAcciones.remove(accion)
 	}
 	
+	def ultimaAccionAgregada(){
+		listaAcciones.get(listaAcciones.size-1).accion
+	}
+	
 }

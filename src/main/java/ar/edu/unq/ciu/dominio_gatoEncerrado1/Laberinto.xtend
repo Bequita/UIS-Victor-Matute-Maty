@@ -12,6 +12,7 @@ class Laberinto {
 	
 	var String nombreLaberinto;
 	var List<Habitacion> listaHabitaciones = new ArrayList
+	var List<Item> listaItems = new ArrayList
 	
 	new(String nombreLab){
 		nombreLaberinto = nombreLab
@@ -30,6 +31,10 @@ class Laberinto {
 	
 	def eliminarHabitacion(Habitacion habitacion) {
 	    listaHabitaciones.remove(habitacion)
+	}
+	
+	def agregarItem(Item item) {
+		listaItems.add(item)
 	}
 
 }

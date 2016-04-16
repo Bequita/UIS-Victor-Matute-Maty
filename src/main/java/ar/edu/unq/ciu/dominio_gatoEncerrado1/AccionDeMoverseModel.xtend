@@ -10,6 +10,7 @@ class AccionDeMoverseModel {
 	var Laberinto laberinto
 	var Habitacion habitacion
 	var Habitacion habitacionAMoverse
+	var Item itemSeleccionado
 	
 	new(Habitacion hab, Laberinto lab) {
 		laberinto = lab
@@ -18,6 +19,6 @@ class AccionDeMoverseModel {
 	
 	def agregarAccionDeMoverse() {
 		var accionDeMoverse = new AccionDeMoverse(habitacionAMoverse)
-		habitacion.listaAcciones.add(accionDeMoverse)
+		habitacion.agregarAccion(accionDeMoverse)
 	}
 }
