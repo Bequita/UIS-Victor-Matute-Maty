@@ -9,7 +9,6 @@ import java.util.List
 class Habitacion {
 	
 	String nombreHabitacion
-	var List<Item> listaItems = newArrayList 
 	Boolean esInicial = false
 	Boolean esFinal = false
 	var List<Accion> listaAcciones = newArrayList
@@ -21,13 +20,11 @@ class Habitacion {
 	new() {
 	}
 	
-	def void agregarItem(String nuevoItem){
-		var item = new Item(nuevoItem)
-		listaItems.add(item)
-	}
-	
-	def descartarItem(Item item) {
-		listaItems.remove(item)
+	def void agregarAccion(Accion accion) {
+		if(accion instanceof AccionDeAgarrarUnElemento) {
+			accion.accion = "Elemento - " + accion.item.nombreItem
+		}
+		listaAcciones.add(accion)
 	}
 	
 	def void eliminarAccion(Accion accion) {
