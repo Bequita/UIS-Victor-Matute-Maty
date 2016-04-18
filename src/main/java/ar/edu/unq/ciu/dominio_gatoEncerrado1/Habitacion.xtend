@@ -3,6 +3,7 @@ package ar.edu.unq.ciu.dominio_gatoEncerrado1
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import java.util.List
+import org.uqbar.commons.model.UserException
 
 @Observable
 @Accessors
@@ -18,6 +19,12 @@ class Habitacion {
 	}
 	
 	new() {
+	}
+	
+	def void setHabitacionFinal(Laberinto lab){
+		
+		
+		
 	}
 	
 	def void agregarAccion(Accion accion) {

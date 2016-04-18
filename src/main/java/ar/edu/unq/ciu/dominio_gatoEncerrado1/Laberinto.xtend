@@ -36,5 +36,10 @@ class Laberinto {
 	def agregarItem(Item item) {
 		listaItems.add(item)
 	}
+	
+	def existeHabitacionFinal() {
+		
+		listaHabitaciones.exists[habitacion | habitacion.esFinal == true]
+	}
 
 }

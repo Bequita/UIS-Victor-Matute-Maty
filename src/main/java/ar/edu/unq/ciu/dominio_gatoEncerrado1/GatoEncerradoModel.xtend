@@ -68,4 +68,17 @@ class GatoEncerradoModel{
 	def eliminarAccionDeLaHabitacion(Habitacion habitacion, Accion accion) {
 		habitacion.eliminarAccion(accion)
 	}
-}
+	
+	
+	def List<String> nombresDeLaberintos(){
+		
+		return listaLaberintos.map[nombreLaberinto]
+  }
+  
+	
+	def Boolean hayLaberintosConElMismoNombre(String nombreLab) {
+		return nombresDeLaberintos.contains(nombreLab)
+	}
+	
+  
+  }

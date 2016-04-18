@@ -2,6 +2,7 @@ package ar.edu.unq.ciu.dominio_gatoEncerrado1
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.UserException
 
 @Observable
 @Accessors
@@ -38,5 +39,31 @@ class CrearLaberintoAppModel {
 	def eliminarLaberinto() {
 		sistema.eliminarLaberinto(nuevoLaberinto.nombreLaberinto)
 	}
+	
+	def laberintosConElMismoNombre(String nombreLaberinto) {
+		
+		if(seRepiteElNombre(nombreLaberinto)){
+			
+		   throw new UserException("Ya existe un laberinto con ese nombre")
+		}
+	}
+	
+	def Boolean seRepiteElNombre(String nombreLaberinto) {
+       sistema.hayLaberintosConElMismoNombre(nombreLaberinto)
+	}
+	
+	def validarHabitacionFinal() {
+		
+		if(nuevoLaberinto.existeHabitacionFinal()){
+			
+			throw new UserException("Ya existe una habitacion final")
+		}
+			
+}
+	
+			
+	
+	
+	
 	
 }
