@@ -21,9 +21,9 @@ class Habitacion {
 	new() {
 	}
 	
-	def void setHabitacionFinal(Laberinto lab){
+	def void setEsFinal(){
 		
-		
+		throw new UserException("Ya existe una habitacion final")
 		
 	}
 	
@@ -32,6 +32,10 @@ class Habitacion {
 			accion.accion = "Elemento - " + accion.item.nombreItem
 		}
 		listaAcciones.add(accion)
+	}
+	
+	def buscarAccion(Accion acc){
+		return listaAcciones.findFirst[accion | accion.accion == acc.accion]
 	}
 	
 	def void eliminarAccion(Accion accion) {

@@ -12,6 +12,7 @@ class CrearLaberintoAppModel {
  	var Habitacion nuevaHabitacion
  	var Accion nuevaAccion
 	var GatoEncerradoModel sistema
+	var boolean habitacionFinalSeteada = false
 	
 	new(){
 		sistema = new GatoEncerradoModel
@@ -58,9 +59,16 @@ class CrearLaberintoAppModel {
 			
 			throw new UserException("Ya existe una habitacion final")
 		}
-			
-}
+	}
 	
+	def habitacionFinalOcupada(){
+		if(!this.habitacionFinalSeteada){
+			this.habitacionFinalSeteada = true 
+		}
+		else {
+			throw new UserException("Ya existe una habitacion final")
+		}
+	}
 			
 	
 	

@@ -8,7 +8,6 @@ import java.util.List
 @Accessors
 class GatoEncerradoModel{
 	
-	//val ArrayList<String> listaNombreLaberintos
 	var List<Laberinto> listaLaberintos
 	
 	new(){
@@ -53,6 +52,11 @@ class GatoEncerradoModel{
 	def agregarHabitacionALaberinto(String nomLab,Habitacion hab) {
 		var Laberinto lab = this.buscarLaberinto(nomLab)
 		lab.agregarHabitacion(hab)
+	}
+	
+	def agregarAccionAHabitacionDeLaberinto(String nombLab,String nomHab,Accion acc){
+		var Laberinto lab = this.buscarLaberinto(nombLab)
+		lab.buscarHabitacion(nomHab).agregarAccion(acc)
 	}
 	
 	/**

@@ -25,8 +25,8 @@ class Laberinto {
 		listaHabitaciones.add(habitacionNueva)
 	}
 	
-	def buscarHabitacion(int numeroHabitacion) {
-		return listaHabitaciones.get(numeroHabitacion)
+	def buscarHabitacion(String nomHab) {
+		return listaHabitaciones.findFirst[habitacion | habitacion.nombreHabitacion == nomHab]
 	}
 	
 	def eliminarHabitacion(Habitacion habitacion) {
