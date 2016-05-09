@@ -10,12 +10,25 @@ import java.util.List
 @Accessors
 class Laberinto {
 	
+	var Integer id
 	var String nombreLaberinto;
 	var List<Habitacion> listaHabitaciones = new ArrayList
 	var List<Item> listaItems = new ArrayList
+	//var ImageIcon imagen
+	var String rutaImagen
+	var String descripcion
 	
-	new(String nombreLab){
+	new(String nombreLab, Integer numeroLaberinto){
+		id = numeroLaberinto
 		nombreLaberinto = nombreLab
+		descripcion = id.toString+" "+nombreLaberinto+" "+rutaImagen
+	}
+	
+	new(String nombreLab, Integer numeroLaberinto,String rutaDeLaImagen){
+		id = numeroLaberinto
+		nombreLaberinto = nombreLab
+		rutaImagen = rutaDeLaImagen
+		descripcion = id.toString+nombreLaberinto+rutaImagen
 	}
 	
 	new() {

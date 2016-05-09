@@ -12,9 +12,9 @@ class GatoEncerradoModel{
 	
 	new(){
 		listaLaberintos = newArrayList()
-		listaLaberintos.add(new Laberinto("Lab1"))
-		listaLaberintos.add(new Laberinto("Lab2"))
-		listaLaberintos.add(new Laberinto("Lab3"))
+		listaLaberintos.add(new Laberinto("Lab1",1))
+		listaLaberintos.add(new Laberinto("Lab2",2))
+		listaLaberintos.add(new Laberinto("Lab3",3))
 		
 		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion1"))
 		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion2"))
@@ -26,8 +26,8 @@ class GatoEncerradoModel{
 	/**
 	 * Crea un laberinto sin habitaciones y lo guarda en ListaLaberintos
 	 */
-	def crearLaberinto(String nomLab){
-		var laberinto = new Laberinto(nomLab)
+	def crearLaberinto(String nomLab,Integer id){
+		var laberinto = new Laberinto(nomLab,id)
 		this.agregarLaberinto(laberinto)
 	}
 	
@@ -77,12 +77,21 @@ class GatoEncerradoModel{
 	def List<String> nombresDeLaberintos(){
 		
 		return listaLaberintos.map[nombreLaberinto]
-  }
-  
+  	}
 	
 	def Boolean hayLaberintosConElMismoNombre(String nombreLab) {
 		return nombresDeLaberintos.contains(nombreLab)
 	}
 	
-  
-  }
+	def List<Integer> idLaberintos(){
+		return listaLaberintos.map[id]
+	}
+	
+//	def List<ImageIcon> rutaDeLaImagenDelLaberinto(){
+//		return listaLaberintos.map[imagen]
+//	}
+	
+	def List<String> descripcionLaberinto(){
+		return listaLaberintos.map[descripcion]
+	}
+}
