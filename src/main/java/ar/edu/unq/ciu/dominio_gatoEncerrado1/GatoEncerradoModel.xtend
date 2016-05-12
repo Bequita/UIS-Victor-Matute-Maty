@@ -87,9 +87,9 @@ class GatoEncerradoModel{
 		return listaLaberintos.map[id]
 	}
 	
-//	def List<ImageIcon> rutaDeLaImagenDelLaberinto(){
-//		return listaLaberintos.map[imagen]
-//	}
+	def List<String> rutaDeLaImagenDelLaberinto(){
+		return listaLaberintos.map[rutaImagen]
+	}
 	
 	def List<String> descripcionLaberinto(){
 		return listaLaberintos.map[descripcion]
