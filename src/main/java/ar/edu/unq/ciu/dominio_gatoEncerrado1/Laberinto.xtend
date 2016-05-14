@@ -13,10 +13,11 @@ class Laberinto {
 	var Integer id
 	var String nombreLaberinto;
 	var List<Habitacion> listaHabitaciones = new ArrayList
-	var List<Item> listaItems = new ArrayList
-	//var ImageIcon imagen
+	//var List<Item> listaItems = new ArrayList
 	var String rutaImagen
 	var String descripcion
+	var Inventario inventario = new Inventario(15)
+	var Integer habitacionActual
 	
 	new(String nombreLab, Integer numeroLaberinto){
 		id = numeroLaberinto
@@ -31,6 +32,13 @@ class Laberinto {
 		descripcion = id.toString+nombreLaberinto+rutaImagen
 	}
 	
+	new(Integer idLab,String nombreLab,String path,String descrip){
+		id = idLab
+		nombreLaberinto = nombreLab
+		rutaImagen = path
+		descripcion = descrip
+	}
+	
 	new() {
 	}
 	
@@ -42,17 +50,25 @@ class Laberinto {
 		return listaHabitaciones.findFirst[habitacion | habitacion.nombreHabitacion == nomHab]
 	}
 	
+	def buscarHabitacionPorId(Integer idHab) {
+		return listaHabitaciones.findFirst[habitacion | habitacion.id == idHab]
+	}
+	
 	def eliminarHabitacion(Habitacion habitacion) {
 	    listaHabitaciones.remove(habitacion)
 	}
 	
-	def agregarItem(Item item) {
-		listaItems.add(item)
-	}
+//	def agregarItem(Item item) {
+//		listaItems.add(item)
+//	}
 	
 	def existeHabitacionFinal() {
 		
 		listaHabitaciones.exists[habitacion | habitacion.esFinal == true]
+	}
+	
+	def agregarItemAlInventario(Item item){
+		inventario.agregarItemDelInventario(item)
 	}
 
 }

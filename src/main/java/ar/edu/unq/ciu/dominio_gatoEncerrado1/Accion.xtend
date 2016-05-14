@@ -7,6 +7,8 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 class Accion {
 	
+	Integer id
+	String nombreAccion
 	Habitacion habitacion
 	String accion
 	
@@ -14,7 +16,17 @@ class Accion {
 		habitacion = hab
 	}
 	
+	new(Integer idAcc, String nombre , Habitacion hab) {
+		id = idAcc
+		nombreAccion = nombre
+		habitacion = hab
+	}
+	
 	new() {
+	}
+	
+	def String ejecutar(Laberinto lab){
+		
 	}
 
 }

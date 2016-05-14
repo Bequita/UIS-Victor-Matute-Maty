@@ -12,7 +12,18 @@ class AccionDeMoverse extends Accion{
 		accion = "Ir a habitacion - " + habitacion.nombreHabitacion
 	}
 	
+	new(Integer id,String nombre,Habitacion habitacion){
+		super(id,nombre,habitacion)
+		accion = "Ir a habitacion - " + habitacion.nombreHabitacion
+	}
+	
 	new() {
+	}
+	
+	override ejecutar(Laberinto lab){
+		lab.habitacionActual = habitacion.id
+		
+		return "Se movio a la Habitacion" + " " + habitacion.id.toString
 	}
 	
 }

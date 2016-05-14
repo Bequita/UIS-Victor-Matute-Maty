@@ -10,10 +10,22 @@ class AccionDeAgarrarUnElemento extends Accion {
 	new(Habitacion habitacion){
 		super(habitacion)
 		item = new Item
-		accion = "Elemento - " + item.nombreItem
+		accion = "Elemento - " + item.nombre
+	}
+	
+	new(Integer id,String nombre,Habitacion habitacion){
+		super(id,nombre,habitacion)
+		item = new Item
+		accion = "Elemento - " + item.nombre
 	}
 	
 	new() {
 	}
 	
+	override ejecutar(Laberinto lab){
+		lab.agregarItemAlInventario(item)
+		habitacion.eliminarAccion(this)
+		
+		return "Se agarro el elemento" + " " + item.nombre
+	}
 }

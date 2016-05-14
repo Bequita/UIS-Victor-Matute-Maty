@@ -9,5 +9,7 @@ class AccionDeUsarItem extends Accion{
 		super(habitacion)
 	}
 	
-	
+	new(Integer id,String nombre,Habitacion habitacion){
+		super(id,nombre,habitacion)
+	}
 }

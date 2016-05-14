@@ -9,13 +9,21 @@ import org.uqbar.commons.model.UserException
 @Accessors
 class Habitacion {
 	
-	String nombreHabitacion
-	Boolean esInicial = false
-	Boolean esFinal = false
+	var Integer id 
+	var String nombreHabitacion
+	var Boolean esInicial = false
+	var Boolean esFinal = false
 	var List<Accion> listaAcciones = newArrayList
+	var String rutaImagen
 	
 	new(String nombre) {
 		nombreHabitacion = nombre
+	}
+	
+	new(String nombre, Integer idHab, String path){
+		nombreHabitacion = nombre
+		id = idHab
+		rutaImagen = path
 	}
 	
 	new() {
@@ -29,7 +37,7 @@ class Habitacion {
 	
 	def void agregarAccion(Accion accion) {
 		if(accion instanceof AccionDeAgarrarUnElemento) {
-			accion.accion = "Elemento - " + accion.item.nombreItem
+			accion.accion = "Elemento - " + accion.item.nombre
 		}
 		listaAcciones.add(accion)
 	}
@@ -38,12 +46,29 @@ class Habitacion {
 		return listaAcciones.findFirst[accion | accion.accion == acc.accion]
 	}
 	
+	def buscarAccionPorId(Integer idAccion){
+		return listaAcciones.findFirst[accion | accion.id == idAccion]
+	}
+	
 	def void eliminarAccion(Accion accion) {
 		listaAcciones.remove(accion)
 	}
 	
 	def ultimaAccionAgregada(){
 		listaAcciones.get(listaAcciones.size-1).accion
+	}
+	
+	def tipo(){
+		if(esFinal){
+			return "Es la Habitacion Final del Laberinto"
+		}else{
+			if(esInicial){
+				return "Es la Habitacion Inciail del Laberinto"
+			}
+			else{
+				return "Habitacion Comun"
+			}
+		}
 	}
 	
 }

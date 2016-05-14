@@ -9,18 +9,27 @@ import java.util.List
 class GatoEncerradoModel{
 	
 	var List<Laberinto> listaLaberintos
+	var Jugador jugadorActual
+	var Integer laberintoActual
 	
 	new(){
 		listaLaberintos = newArrayList()
 		listaLaberintos.add(new Laberinto("Lab1",1))
-		listaLaberintos.add(new Laberinto("Lab2",2))
-		listaLaberintos.add(new Laberinto("Lab3",3))
+		//listaLaberintos.add(new Laberinto("Lab2",2))
+		//listaLaberintos.add(new Laberinto("Lab3",3))
 		
-		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion1"))
-		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion2"))
-		listaLaberintos.get(0).agregarHabitacion(new Habitacion("Habitacion3"))
+		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
+		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion2",2,"c/algo2"))
+		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion3",3,"c/algo3"))
 		
-		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeMoverse(new Habitacion("Habitacion4")))
+		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new Accion(1,"Accion",new Habitacion("Habitacion4")))
+		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeMoverse(2,"Accion de moverse", new Habitacion("Habitacion5",5,"c/algo4")))
+		
+		var Item item = new Item(1,"Pala","Esto es una pala para palear(?")
+		
+		this.buscarLaberinto("Lab1").agregarItemAlInventario(item)
+		
+		laberintoActual = 1
 	}
 	
 	/**
@@ -41,6 +50,10 @@ class GatoEncerradoModel{
 	def Laberinto buscarLaberinto(String nomLab){
 		return listaLaberintos.findFirst[laberinto | laberinto.nombreLaberinto == nomLab]
 	}
+	
+	def Laberinto laberintoPorId(Integer idLab){
+		return listaLaberintos.findFirst[laberinto | laberinto.id == idLab]
+	}
 
 	def agregarLaberinto(Laberinto lab){
 		listaLaberintos.add(lab);
@@ -54,10 +67,10 @@ class GatoEncerradoModel{
 		lab.agregarHabitacion(hab)
 	}
 	
-	def agregarAccionAHabitacionDeLaberinto(String nombLab,String nomHab,Accion acc){
-		var Laberinto lab = this.buscarLaberinto(nombLab)
-		lab.buscarHabitacion(nomHab).agregarAccion(acc)
-	}
+//	def agregarAccionAHabitacionDeLaberinto(String nombLab,String nomHab,Accion acc){
+//		var Laberinto lab = this.buscarLaberinto(nombLab)
+//		lab.buscarHabitacion(nomHab).agregarAccion(acc)
+//	}
 	
 	/**
 	 * Elimina una habitacion al laberinto pasado por parametro
@@ -83,15 +96,8 @@ class GatoEncerradoModel{
 		return nombresDeLaberintos.contains(nombreLab)
 	}
 	
-	def List<Integer> idLaberintos(){
-		return listaLaberintos.map[id]
+	def inicializarLaberintoActual(Integer idLab){
+		laberintoActual = idLab
 	}
 	
-	def List<String> rutaDeLaImagenDelLaberinto(){
-		return listaLaberintos.map[rutaImagen]
-	}
-	
-	def List<String> descripcionLaberinto(){
-		return listaLaberintos.map[descripcion]
-	}
 }

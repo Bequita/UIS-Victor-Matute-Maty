@@ -7,9 +7,17 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 class Item {
 	
-	String nombreItem = new String
+	var Integer id
+	var String nombre
+	var String descripcion 
 	
 	new(){}
+	
+	new(Integer idItem,String nombreItem,String descripcionItem){
+		id = idItem
+		nombre = nombreItem
+		descripcion = descripcionItem
+	}
 	
 	def void ejecutarAccion(){}
 	
