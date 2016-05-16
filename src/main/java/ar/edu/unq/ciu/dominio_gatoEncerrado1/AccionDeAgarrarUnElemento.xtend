@@ -13,9 +13,10 @@ class AccionDeAgarrarUnElemento extends Accion {
 		accion = "Elemento - " + item.nombre
 	}
 	
-	new(Integer id,String nombre,Habitacion habitacion){
+	new(Integer id,String nombre,Habitacion habitacion,String nombItem){
 		super(id,nombre,habitacion)
 		item = new Item
+		item.nombre = nombItem
 		accion = "Elemento - " + item.nombre
 	}
 	

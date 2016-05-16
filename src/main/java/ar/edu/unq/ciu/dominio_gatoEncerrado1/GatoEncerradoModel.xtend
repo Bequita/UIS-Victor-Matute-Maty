@@ -24,10 +24,16 @@ class GatoEncerradoModel{
 		
 		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new Accion(1,"Accion",new Habitacion("Habitacion4")))
 		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeMoverse(2,"Accion de moverse", new Habitacion("Habitacion5",5,"c/algo4")))
+		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
+		
+		var AccionDeMoverse accionDeMoverse = new AccionDeMoverse(7,"Accion de moverse",new Habitacion("Habitacion6",6,"c/algo6"))
+		
+		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeUsarItem(4,"Accion de usar item",listaLaberintos.get(0).listaHabitaciones.get(0),"Escalera permite ir a otra habitacion",accionDeMoverse))
 		
 		var Item item = new Item(1,"Pala","Esto es una pala para palear(?")
 		
 		this.buscarLaberinto("Lab1").agregarItemAlInventario(item)
+		
 		
 		laberintoActual = 1
 	}

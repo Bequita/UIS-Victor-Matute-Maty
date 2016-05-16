@@ -9,7 +9,8 @@ class Item {
 	
 	var Integer id
 	var String nombre
-	var String descripcion 
+	var String descripcion
+	var Accion accionPosible
 	
 	new(){}
 	
