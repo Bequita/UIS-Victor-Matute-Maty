@@ -13,27 +13,28 @@ class GatoEncerradoModel{
 	var Integer laberintoActual
 	
 	new(){
+		/* Creacion del laberintos */
 		listaLaberintos = newArrayList()
 		listaLaberintos.add(new Laberinto("Lab1",1))
-		//listaLaberintos.add(new Laberinto("Lab2",2))
-		//listaLaberintos.add(new Laberinto("Lab3",3))
+		listaLaberintos.add(new Laberinto("Lab2",2))
+		listaLaberintos.add(new Laberinto("Lab3",3))
 		
+		/* Creacion del habitaciones para el Lab1  */
 		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
 		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion2",2,"c/algo2"))
 		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion3",3,"c/algo3"))
 		
-		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new Accion(1,"Accion",new Habitacion("Habitacion4")))
-		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeMoverse(2,"Accion de moverse", new Habitacion("Habitacion5",5,"c/algo4")))
-		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
+		/* Creacion de acciones para la Habitacion1 para el Lab1  */
+		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new Accion(1,"Accion",new Habitacion("Habitacion4")))
+		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeMoverse(2,"Accion de moverse", new Habitacion("Habitacion5",5,"c/algo4")))
+		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
 		
 		var AccionDeMoverse accionDeMoverse = new AccionDeMoverse(7,"Accion de moverse",new Habitacion("Habitacion6",6,"c/algo6"))
+		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeUsarItem(4,"Accion de usar item",this.buscarLaberinto("Lab1").buscarHabitacionPorId(1),"Escalera permite ir a otra habitacion",accionDeMoverse))
 		
-		listaLaberintos.get(0).listaHabitaciones.get(0).listaAcciones.add(new AccionDeUsarItem(4,"Accion de usar item",listaLaberintos.get(0).listaHabitaciones.get(0),"Escalera permite ir a otra habitacion",accionDeMoverse))
-		
+		/* Se inserta un item al inventario del Lab1 */
 		var Item item = new Item(1,"Pala","Esto es una pala para palear(?")
-		
-		this.buscarLaberinto("Lab1").agregarItemAlInventario(item)
-		
+		this.buscarLaberinto("Lab1").agregarItemAlInventario(item)	
 		
 		laberintoActual = 1
 	}

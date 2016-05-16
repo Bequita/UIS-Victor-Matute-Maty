@@ -13,7 +13,6 @@ class Laberinto {
 	var Integer id
 	var String nombreLaberinto;
 	var List<Habitacion> listaHabitaciones = new ArrayList
-	//var List<Item> listaItems = new ArrayList
 	var String rutaImagen
 	var String descripcion
 	var Inventario inventario = new Inventario(15)
@@ -70,5 +69,11 @@ class Laberinto {
 	def agregarItemAlInventario(Item item){
 		inventario.agregarItemDelInventario(item)
 	}
+	
+	def agregarAccionALaHabitacion(Integer idHab, Accion acc){
+		this.buscarHabitacionPorId(idHab).agregarAccion(acc)
+	}
+
+
 
 }
