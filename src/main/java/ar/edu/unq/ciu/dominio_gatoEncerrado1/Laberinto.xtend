@@ -15,7 +15,6 @@ class Laberinto {
 	var List<Habitacion> listaHabitaciones = new ArrayList
 	var String rutaImagen
 	var String descripcion
-	var Inventario inventario = new Inventario(15)
 	var Integer habitacionActual
 	
 	new(String nombreLab, Integer numeroLaberinto){
@@ -66,10 +65,7 @@ class Laberinto {
 		listaHabitaciones.exists[habitacion | habitacion.esFinal == true]
 	}
 	
-	def agregarItemAlInventario(Item item){
-		inventario.agregarItemDelInventario(item)
-	}
-	
+
 	def agregarAccionALaHabitacion(Integer idHab, Accion acc){
 		this.buscarHabitacionPorId(idHab).agregarAccion(acc)
 	}

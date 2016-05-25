@@ -20,9 +20,9 @@ class AccionDeMoverse extends Accion{
 	new() {
 	}
 	
-	override ejecutar(Laberinto lab){
-		lab.habitacionActual = habitacion.id
+	override ejecutar(GatoEncerradoModel sistema,Jugador jugador){
 		
+		sistema.habitacionActual = this.habitacion
 		return "Se movio a la Habitacion" + " " + habitacion.id.toString
 	}
 	

@@ -6,10 +6,18 @@ import java.util.ArrayList
 
 @Accessors
 class Jugador {
-	var String idUsuario
+	var Integer idUsuario
+	var Inventario inventario = new Inventario(0)
 	var List<String> laberintosJugados = new ArrayList
 	
-	new(String id){
+	new(Integer id){
 		idUsuario = id
 	}
+	
+	def void agregarItemAlInventario(Item item){
+		
+		inventario.agregarItemDelInventario(item)
+	}
+	
+	
 }

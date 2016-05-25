@@ -23,8 +23,8 @@ class AccionDeAgarrarUnElemento extends Accion {
 	new() {
 	}
 	
-	override ejecutar(Laberinto lab){
-		lab.agregarItemAlInventario(item)
+	override ejecutar(GatoEncerradoModel sistema,Jugador jugador){
+		jugador.agregarItemAlInventario(item)
 		habitacion.eliminarAccion(this)
 		
 		return "Se agarro el elemento" + " " + item.nombre

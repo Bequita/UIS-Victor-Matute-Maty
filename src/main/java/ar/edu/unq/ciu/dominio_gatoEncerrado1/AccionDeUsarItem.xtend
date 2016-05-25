@@ -19,7 +19,7 @@ class AccionDeUsarItem extends Accion{
 		item.accionPosible = accionDelItem
 	}
 	
-	override ejecutar(Laberinto lab){
-		return item.accionPosible.ejecutar(lab)
+	override ejecutar(GatoEncerradoModel sistema,Jugador jugador){
+		return item.accionPosible.ejecutar(sistema,jugador)
 	}
 }

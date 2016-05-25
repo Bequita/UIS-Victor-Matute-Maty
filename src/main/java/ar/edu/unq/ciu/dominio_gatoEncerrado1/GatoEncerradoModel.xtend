@@ -9,15 +9,25 @@ import java.util.List
 class GatoEncerradoModel{
 	
 	var List<Laberinto> listaLaberintos
+	var List<Jugador> jugadores
+	var Laberinto laberintoActual
+	var Habitacion habitacionActual
 	var Jugador jugadorActual
-	var Integer laberintoActual
 	
 	new(){
+		
+		var jugador = new Jugador(1)
+		jugadores.add(jugador)
+		jugadorActual = jugador
+		
 		/* Creacion del laberintos */
 		listaLaberintos = newArrayList()
 		listaLaberintos.add(new Laberinto("Lab1",1))
 		listaLaberintos.add(new Laberinto("Lab2",2))
 		listaLaberintos.add(new Laberinto("Lab3",3))
+		
+		/*Inicializacion de laberinto actual */
+        laberintoActual = this.buscarLaberinto("Lab1")
 		
 		/* Creacion del habitaciones para el Lab1  */
 		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
@@ -32,11 +42,16 @@ class GatoEncerradoModel{
 		var AccionDeMoverse accionDeMoverse = new AccionDeMoverse(7,"Accion de moverse",new Habitacion("Habitacion6",6,"c/algo6"))
 		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeUsarItem(4,"Accion de usar item",this.buscarLaberinto("Lab1").buscarHabitacionPorId(1),"Escalera permite ir a otra habitacion",accionDeMoverse))
 		
+		
 		/* Se inserta un item al inventario del Lab1 */
 		var Item item = new Item(1,"Pala","Esto es una pala para palear(?")
-		this.buscarLaberinto("Lab1").agregarItemAlInventario(item)	
+		this.agregarItemAlJugador(item)	
 		
-		laberintoActual = 1
+	
+	}
+	
+	def agregarItemAlJugador(Item item) {
+		jugadorActual.agregarItemAlInventario(item)
 	}
 	
 	/**
@@ -103,8 +118,7 @@ class GatoEncerradoModel{
 		return nombresDeLaberintos.contains(nombreLab)
 	}
 	
-	def inicializarLaberintoActual(Integer idLab){
-		laberintoActual = idLab
-	}
 	
-}
+	def buscarJugador(Integer idUsuario) {
+		return jugadores.findFirst[jugador | jugador.idUsuario == idUsuario  ]	}
+	}

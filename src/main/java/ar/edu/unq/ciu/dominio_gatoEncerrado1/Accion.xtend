@@ -25,7 +25,7 @@ class Accion {
 	new() {
 	}
 	
-	def String ejecutar(Laberinto lab){
+	def String ejecutar(GatoEncerradoModel sistema,Jugador jugador){
 		
 	}
 
