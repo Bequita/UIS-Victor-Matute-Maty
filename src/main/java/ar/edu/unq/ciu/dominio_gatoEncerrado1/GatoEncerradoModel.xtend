@@ -9,7 +9,7 @@ import java.util.List
 class GatoEncerradoModel{
 	
 	var List<Laberinto> listaLaberintos
-	var List<Jugador> jugadores
+	var List<Jugador> jugadores = newArrayList()
 	var Laberinto laberintoActual
 	var Habitacion habitacionActual
 	var Jugador jugadorActual
