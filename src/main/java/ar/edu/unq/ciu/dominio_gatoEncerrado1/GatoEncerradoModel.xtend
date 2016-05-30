@@ -9,7 +9,7 @@ import java.util.List
 class GatoEncerradoModel{
 	
 	var List<Laberinto> listaLaberintos
-	var List<Jugador> jugadores = newArrayList()
+	var List<Jugador> jugadores
 	var Laberinto laberintoActual
 	var Habitacion habitacionActual
 	var Jugador jugadorActual
@@ -17,6 +17,7 @@ class GatoEncerradoModel{
 	new(){
 		
 		var jugador = new Jugador(1)
+		jugadores = newArrayList()
 		jugadores.add(jugador)
 		jugadorActual = jugador
 		
@@ -30,14 +31,24 @@ class GatoEncerradoModel{
         laberintoActual = this.buscarLaberinto("Lab1")
 		
 		/* Creacion del habitaciones para el Lab1  */
-		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
-		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion2",2,"c/algo2"))
-		this.buscarLaberinto("Lab1").agregarHabitacion(new Habitacion("Habitacion3",3,"c/algo3"))
+		laberintoActual.agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
+		laberintoActual.agregarHabitacion(new Habitacion("Habitacion2",2,"c/algo2"))
+		laberintoActual.agregarHabitacion(new Habitacion("Habitacion3",3,"c/algo3"))
+		
+		/*Asignacion de Habitacion inicial y final */
+		
+		laberintoActual.marcarHabitacionInicial(1)
+		laberintoActual.marcarHabitacionFinal(3)
+		
+		/*Inicializacion de habitacion actual */
+		habitacionActual = seleccionarHabitacion(laberintoActual)
+		
+		val habitacion3 = laberintoActual.buscarHabitacionPorId(3)	
 		
 		/* Creacion de acciones para la Habitacion1 para el Lab1  */
-		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new Accion(1,"Accion",new Habitacion("Habitacion4")))
-		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeMoverse(2,"Accion de moverse", new Habitacion("Habitacion5",5,"c/algo4")))
-		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
+		laberintoActual.agregarAccionALaHabitacion(1,new Accion(1,"Accion",new Habitacion("Habitacion4")))
+		laberintoActual.agregarAccionALaHabitacion(1,new AccionDeMoverse(2,"Accion de moverse",habitacion3))
+		laberintoActual.agregarAccionALaHabitacion(1,new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
 		
 		var AccionDeMoverse accionDeMoverse = new AccionDeMoverse(7,"Accion de moverse",new Habitacion("Habitacion6",6,"c/algo6"))
 		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeUsarItem(4,"Accion de usar item",this.buscarLaberinto("Lab1").buscarHabitacionPorId(1),"Escalera permite ir a otra habitacion",accionDeMoverse))
@@ -48,6 +59,10 @@ class GatoEncerradoModel{
 		this.agregarItemAlJugador(item)	
 		
 	
+	}
+	
+	def seleccionarHabitacion(Laberinto laberinto) {
+		laberinto.habitacionInicial()
 	}
 	
 	def agregarItemAlJugador(Item item) {
@@ -121,4 +136,9 @@ class GatoEncerradoModel{
 	
 	def buscarJugador(Integer idUsuario) {
 		return jugadores.findFirst[jugador | jugador.idUsuario == idUsuario  ]	}
+	
+	def seleccionarLaberinto(String nombreDeLaberinto) {
+		laberintoActual = buscarLaberinto(nombreDeLaberinto)
 	}
+	
+}

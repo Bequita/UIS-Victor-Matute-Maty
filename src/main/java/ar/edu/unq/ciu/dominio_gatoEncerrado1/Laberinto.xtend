@@ -15,7 +15,6 @@ class Laberinto {
 	var List<Habitacion> listaHabitaciones = new ArrayList
 	var String rutaImagen
 	var String descripcion
-	var Integer habitacionActual
 	
 	new(String nombreLab, Integer numeroLaberinto){
 		id = numeroLaberinto
@@ -61,15 +60,24 @@ class Laberinto {
 //	}
 	
 	def existeHabitacionFinal() {
-		
 		listaHabitaciones.exists[habitacion | habitacion.esFinal == true]
 	}
 	
-
 	def agregarAccionALaHabitacion(Integer idHab, Accion acc){
 		this.buscarHabitacionPorId(idHab).agregarAccion(acc)
 	}
+	
+	def marcarHabitacionInicial(int numeroHabitacion) {
+		buscarHabitacionPorId(numeroHabitacion).setEsInicial()
+	}
 
-
+	def marcarHabitacionFinal(int numeroHabitacion) {
+		buscarHabitacionPorId(numeroHabitacion).setEsFinal()
+	}
+	
+	def habitacionInicial() {
+		buscarHabitacionPorId(1)
+	}
+	
 
 }

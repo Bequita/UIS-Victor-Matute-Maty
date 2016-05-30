@@ -29,9 +29,16 @@ class Habitacion {
 	new() {
 	}
 	
+	
+	def void setEsInicial(){
+		
+		esInicial = true
+		
+	}
+	
 	def void setEsFinal(){
 		
-		throw new UserException("Ya existe una habitacion final")
+		esFinal = true
 		
 	}
 	
@@ -63,12 +70,11 @@ class Habitacion {
 			return "Es la Habitacion Final del Laberinto"
 		}else{
 			if(esInicial){
-				return "Es la Habitacion Inciail del Laberinto"
+				return "Es la Habitacion Incial del Laberinto"
 			}
 			else{
 				return "Habitacion Comun"
 			}
 		}
 	}
-	
-}
+}	
