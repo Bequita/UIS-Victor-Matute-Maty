@@ -53,15 +53,16 @@ class GatoEncerradoModel{
 		habitacionActual = seleccionarHabitacion(laberintoActual)	
 		
 		/* Creacion de acciones para las Habitaciones del Lab1  */
-		var accion1 = new Accion(1,"Accion",habitacion1)
-		var accion2 = new AccionDeMoverse(2,"AccionDeMoverse",habitacion1)
+		var accion = new AccionDeMoverse(5,"Accion de Moverse",habitacion3)
+		var accion1 = new AccionDeUsarItem(1,"Accion de Usar Item Cuchara",habitacion1,"Cuchara",accion)
+		var accion2 = new AccionDeMoverse(2,"AccionDeMoverse",habitacion2)
 		var accion3 = new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",habitacion3,"Martillo")
 		var accion4 = new AccionDeMoverse(4,"Accion de moverse",habitacion2)
 		
 		
 		laberintoActual.agregarAccionALaHabitacion(1,accion1)
 		laberintoActual.agregarAccionALaHabitacion(1,accion2)
-		laberintoActual.agregarAccionALaHabitacion(3,accion3)
+		laberintoActual.agregarAccionALaHabitacion(1,accion3)
 		laberintoActual.agregarAccionALaHabitacion(3,accion4)
 		
 		
