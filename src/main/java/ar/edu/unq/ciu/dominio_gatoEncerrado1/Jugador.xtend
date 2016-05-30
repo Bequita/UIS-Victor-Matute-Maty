@@ -19,5 +19,8 @@ class Jugador {
 		inventario.agregarItemDelInventario(item)
 	}
 	
+	def agarroItem(String nombreItem){
+		inventario.estaElItem(nombreItem)
+	}
 	
 }

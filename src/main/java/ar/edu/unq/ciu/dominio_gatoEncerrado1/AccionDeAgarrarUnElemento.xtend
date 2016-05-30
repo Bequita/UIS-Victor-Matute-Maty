@@ -25,7 +25,7 @@ class AccionDeAgarrarUnElemento extends Accion {
 	
 	override ejecutar(GatoEncerradoModel sistema,Jugador jugador){
 		jugador.agregarItemAlInventario(item)
-		habitacion.eliminarAccion(this)
+		//habitacion.eliminarAccion(this)
 		
 		return "Se agarro el elemento" + " " + item.nombre
 	}

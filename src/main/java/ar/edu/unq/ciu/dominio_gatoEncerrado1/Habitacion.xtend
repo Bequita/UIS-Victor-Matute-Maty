@@ -57,6 +57,12 @@ class Habitacion {
 		return listaAcciones.findFirst[accion | accion.id == idAccion]
 	}
 	
+	def ejecutarAccion(Integer idAccion,GatoEncerradoModel sistema,Jugador jugador){
+		var accionAEjecutar = buscarAccionPorId(idAccion)
+		accionAEjecutar.ejecutar(sistema,jugador)
+		eliminarAccion(accionAEjecutar)
+	}
+	
 	def void eliminarAccion(Accion accion) {
 		listaAcciones.remove(accion)
 	}
@@ -77,4 +83,5 @@ class Habitacion {
 			}
 		}
 	}
+	
 }	

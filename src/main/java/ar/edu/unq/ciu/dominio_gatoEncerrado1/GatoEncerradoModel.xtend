@@ -16,24 +16,33 @@ class GatoEncerradoModel{
 	
 	new(){
 		
-		var jugador = new Jugador(1)
 		jugadores = newArrayList()
+		listaLaberintos = newArrayList()
+		
+		var jugador = new Jugador(1)
 		jugadores.add(jugador)
 		jugadorActual = jugador
 		
-		/* Creacion del laberintos */
-		listaLaberintos = newArrayList()
-		listaLaberintos.add(new Laberinto("Lab1",1))
-		listaLaberintos.add(new Laberinto("Lab2",2))
-		listaLaberintos.add(new Laberinto("Lab3",3))
+		/* Creacion de laberintos */
+		var laberinto1 = new Laberinto("La Cueva",1)
+		var laberinto2 = new Laberinto("La Mansion",2)
+		var laberinto3 = new Laberinto("El Bosque ",3)
+		
+		listaLaberintos.add(laberinto1)
+		listaLaberintos.add(laberinto2)
+		listaLaberintos.add(laberinto3)
 		
 		/*Inicializacion de laberinto actual */
-        laberintoActual = this.buscarLaberinto("Lab1")
+        laberintoActual = laberinto1
 		
 		/* Creacion del habitaciones para el Lab1  */
-		laberintoActual.agregarHabitacion(new Habitacion("Habitacion1",1,"c/algo"))
-		laberintoActual.agregarHabitacion(new Habitacion("Habitacion2",2,"c/algo2"))
-		laberintoActual.agregarHabitacion(new Habitacion("Habitacion3",3,"c/algo3"))
+		var habitacion1 = new Habitacion("Habitacion1",1,"c/algo")
+		var habitacion2 = new Habitacion("Habitacion2",2,"c/algo")
+		var habitacion3 = new Habitacion("Habitacion3",3,"c/algo")
+		
+		laberintoActual.agregarHabitacion(habitacion1)
+		laberintoActual.agregarHabitacion(habitacion2)
+		laberintoActual.agregarHabitacion(habitacion3)
 		
 		/*Asignacion de Habitacion inicial y final */
 		
@@ -41,17 +50,19 @@ class GatoEncerradoModel{
 		laberintoActual.marcarHabitacionFinal(3)
 		
 		/*Inicializacion de habitacion actual */
-		habitacionActual = seleccionarHabitacion(laberintoActual)
+		habitacionActual = seleccionarHabitacion(laberintoActual)	
 		
-		val habitacion3 = laberintoActual.buscarHabitacionPorId(3)	
+		/* Creacion de acciones para las Habitaciones del Lab1  */
+		var accion1 = new Accion(1,"Accion",habitacion1)
+		var accion2 = new AccionDeMoverse(2,"AccionDeMoverse",habitacion1)
+		var accion3 = new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",habitacion3,"Martillo")
+		var accion4 = new AccionDeMoverse(4,"Accion de moverse",habitacion2)
 		
-		/* Creacion de acciones para la Habitacion1 para el Lab1  */
-		laberintoActual.agregarAccionALaHabitacion(1,new Accion(1,"Accion",new Habitacion("Habitacion4")))
-		laberintoActual.agregarAccionALaHabitacion(1,new AccionDeMoverse(2,"Accion de moverse",habitacion3))
-		laberintoActual.agregarAccionALaHabitacion(1,new AccionDeAgarrarUnElemento(3,"Accion de agarrar elemento",listaLaberintos.get(0).listaHabitaciones.get(0),"Martillo"))
 		
-		var AccionDeMoverse accionDeMoverse = new AccionDeMoverse(7,"Accion de moverse",new Habitacion("Habitacion6",6,"c/algo6"))
-		this.buscarLaberinto("Lab1").agregarAccionALaHabitacion(1,new AccionDeUsarItem(4,"Accion de usar item",this.buscarLaberinto("Lab1").buscarHabitacionPorId(1),"Escalera permite ir a otra habitacion",accionDeMoverse))
+		laberintoActual.agregarAccionALaHabitacion(1,accion1)
+		laberintoActual.agregarAccionALaHabitacion(1,accion2)
+		laberintoActual.agregarAccionALaHabitacion(3,accion3)
+		laberintoActual.agregarAccionALaHabitacion(3,accion4)
 		
 		
 		/* Se inserta un item al inventario del Lab1 */
@@ -104,10 +115,10 @@ class GatoEncerradoModel{
 		lab.agregarHabitacion(hab)
 	}
 	
-//	def agregarAccionAHabitacionDeLaberinto(String nombLab,String nomHab,Accion acc){
-//		var Laberinto lab = this.buscarLaberinto(nombLab)
-//		lab.buscarHabitacion(nomHab).agregarAccion(acc)
-//	}
+	def agregarAccionAHabitacionDeLaberinto(String nombLab,String nomHab,Accion acc){
+		var Laberinto lab = this.buscarLaberinto(nombLab)
+		lab.buscarHabitacion(nomHab).agregarAccion(acc)
+	}
 	
 	/**
 	 * Elimina una habitacion al laberinto pasado por parametro

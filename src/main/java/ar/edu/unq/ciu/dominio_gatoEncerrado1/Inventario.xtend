@@ -29,4 +29,7 @@ class Inventario {
 		items.add(item)
 	}
 	
+	def estaElItem(String nombre){
+		return items.exists[item | item.nombre == nombre]
+		}
 }
