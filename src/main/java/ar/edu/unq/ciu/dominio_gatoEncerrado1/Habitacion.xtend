@@ -59,8 +59,10 @@ class Habitacion {
 	
 	def ejecutarAccion(Integer idAccion,GatoEncerradoModel sistema,Jugador jugador){
 		var accionAEjecutar = buscarAccionPorId(idAccion)
-		accionAEjecutar.ejecutar(sistema,jugador)
+		var accion = accionAEjecutar.ejecutar(sistema,jugador)
 		eliminarAccion(accionAEjecutar)
+		
+		return accion
 	}
 	
 	def void eliminarAccion(Accion accion) {

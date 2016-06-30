@@ -11,13 +11,15 @@ class Item {
 	var String nombre
 	var String descripcion
 	var Accion accionPosible
+	var String rutaImagen
 	
 	new(){}
 	
-	new(Integer idItem,String nombreItem,String descripcionItem){
+	new(Integer idItem,String nombreItem,String descripcionItem, String ruta){
 		id = idItem
 		nombre = nombreItem
 		descripcion = descripcionItem
+		rutaImagen = ruta
 	}
 	
 	def void ejecutarAccion(){}

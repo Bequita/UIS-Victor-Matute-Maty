@@ -31,5 +31,9 @@ class Inventario {
 	
 	def estaElItem(String nombre){
 		return items.exists[item | item.nombre == nombre]
-		}
+	}
+	
+	def eliminarItem(String nombreItem) {
+		items.removeIf(item | item.nombre == nombreItem)
+	}
 }

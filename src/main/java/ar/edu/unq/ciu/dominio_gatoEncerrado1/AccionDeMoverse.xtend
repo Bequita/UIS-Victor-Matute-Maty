@@ -5,25 +5,28 @@ import org.uqbar.commons.utils.Observable
 
 @Observable
 @Accessors
-class AccionDeMoverse extends Accion{
-	
+class AccionDeMoverse extends Accion {
+
 	new(Habitacion habitacion) {
 		super(habitacion)
 		accion = "Ir a habitacion - " + habitacion.nombreHabitacion
 	}
-	
-	new(Integer id,String nombre,Habitacion habitacion){
-		super(id,nombre,habitacion)
+
+	new(Integer id, String nombre, Habitacion habitacion) {
+		super(id, nombre, habitacion)
 		accion = "Ir a habitacion - " + habitacion.nombreHabitacion
 	}
-	
+
 	new() {
 	}
-	
-	override ejecutar(GatoEncerradoModel sistema,Jugador jugador){
-		
-		sistema.habitacionActual = this.habitacion
-		return "Se movio a la Habitacion" + " " + habitacion.id.toString
+
+	override ejecutar(GatoEncerradoModel sistema, Jugador jugador) {
+		if (nombreAccion == "Accion de salir al exterior") {
+			return "Ganaste el juego ! ! !"
+		} else {
+			sistema.habitacionActual = this.habitacion
+			return "Se movio a la Habitacion" + " " + habitacion.id.toString
+		}
 	}
-	
+
 }
